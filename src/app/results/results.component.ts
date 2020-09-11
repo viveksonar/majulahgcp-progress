@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { QwiklabsProfileLinkService } from '@app/services/qwiklabs-profile-link.service';
+import QwiklabsHelper from '@app/helpers/qwiklabs-helper';
 
 @Component({
   selector: 'app-results',
@@ -18,12 +19,18 @@ export class ResultsComponent implements OnInit {
     ) { 
     this._linkService = linkService;
     this._cdsRef = cdsRef;
-    console.log(this._cdsRef);
   }
 
-  private _onLinkChanged(link): void {
+  private async _onLinkChanged(link): Promise<void> {
     this.profileLink = link;
-    this._cdsRef.markForCheck();
+    if (QwiklabsHelper.isProfileLinkCorrect(link)) {
+      const profile = await QwiklabsHelper.getProfileFrom(link);
+      console.log(profile);
+    } else {
+      // show error message;
+    }
+
+    // this._cdsRef.markForCheck();
   }
 
   ngOnInit(): void {
