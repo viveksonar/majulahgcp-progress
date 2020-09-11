@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ResultsComponent } from './results/results.component';
+import { BadgeLinkComponent } from './badge-link/badge-link.component';
+import { ProgressionTierComponent } from './progression-tier/progression-tier.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ResultsComponent
+    ResultsComponent,
+    BadgeLinkComponent,
+    ProgressionTierComponent
   ],
   imports: [
     BrowserModule,

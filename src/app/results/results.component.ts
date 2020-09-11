@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { QwiklabsProfileLinkService } from '@app/services/qwiklabs-profile-link.service';
 import QwiklabsHelper from '@app/helpers/qwiklabs-helper';
+import { QwiklabsQuestBadge, QwiklabsTier } from  '@app/types/qwiklabs';
+import QuestTiers from '@app/static/tiers.json';
 
 @Component({
   selector: 'app-results',
@@ -9,7 +11,11 @@ import QwiklabsHelper from '@app/helpers/qwiklabs-helper';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResultsComponent implements OnInit {
-  public profileLink: string = 'cats';
+  public profileLoaded: boolean = false;
+  public profileLink: string = '';
+  public uncompletedQuestBadges: QwiklabsQuestBadge[] = [];
+  public completedQuestBadges: QwiklabsQuestBadge[] = [];
+  public relevantQuestTiers: QwiklabsTier[] = QuestTiers;
   private _linkService: QwiklabsProfileLinkService;
   private _cdsRef: ChangeDetectorRef;
 
@@ -25,12 +31,15 @@ export class ResultsComponent implements OnInit {
     this.profileLink = link;
     if (QwiklabsHelper.isProfileLinkCorrect(link)) {
       const profile = await QwiklabsHelper.getProfileFrom(link);
-      console.log(profile);
+      this.uncompletedQuestBadges = QwiklabsHelper.getUncompletedBadges(profile.badges);
+      this.completedQuestBadges = QwiklabsHelper.getCompletedBadges(profile.badges);
+      this.profileLoaded = true;
     } else {
       // show error message;
+      this.profileLoaded = false;
     }
 
-    // this._cdsRef.markForCheck();
+    this._cdsRef.markForCheck();
   }
 
   ngOnInit(): void {

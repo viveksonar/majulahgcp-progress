@@ -1,0 +1,4 @@
+<div *ngIf="completed; else elseBlock">Completed {{ completedBadges.length }} / {{ tier.questRequirements }} ({{ percentage }}%)</div>
+<ng-template #elseBlock>
+    <div>Not Completed {{ completedBadges.length }} / {{ tier.questRequirements }} ({{ percentage }}%)</div>
+</ng-template>

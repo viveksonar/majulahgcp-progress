@@ -1,16 +1,27 @@
 
-export type QwiklabsBadge = {
+export type QwiklabsProfileBadge = {
     title: string;
     earnedDateStr: string;
 };
 
-export type QwiklabsUser = {
+export type QwiklabsProfileUser = {
     name: string;
     imageUrl: string;
 };
 
 export type FetchQwiklabsProfileStatus = {
-    user: QwiklabsUser;
-    badges: QwiklabsBadge[];
+    user: QwiklabsProfileUser;
+    badges: QwiklabsProfileBadge[];
     error: Error;
 };
+
+export type QwiklabsQuestBadge = {
+    title: string;
+    image: string;
+    link: string;
+};
+
+export type QwiklabsTier = {
+    questRequirements: number;
+    rewards: string;
+}

@@ -7,7 +7,7 @@ import { QwiklabsProfileLinkService } from '@app/services/qwiklabs-profile-link.
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  public profileSearchText: string = 'testing';
+  public profileSearchText: string = '';
   private _linkService: QwiklabsProfileLinkService;
 
   constructor(linkService: QwiklabsProfileLinkService) { 

@@ -1,0 +1,20 @@
+[
+    { "title": "Intro to ML: Image Processing", "image": "/assets/one.png", "link": "https://www.qwiklabs.com/quests/85" },
+    { "title": "Intro to ML: Language Processing", "image": "/assets/two.png", "link": "https://www.qwiklabs.com/quests/82" },
+    { "title": "Intermediate ML: TensorFlow on GCP", "image": "/assets/three.png", "link": "https://www.qwiklabs.com/quests/83" },
+    { "title": "Google Cloud Solutions II: Data and Machine Learning", "image": "/assets/four.png", "link": "https://www.qwiklabs.com/quests/38" },
+    { "title": "Explore Machine Learning Models with Explainable AI", "image": "/assets/five.png", "link": "https://www.qwiklabs.com/quests/126" },
+    { "title": "Advanced ML: ML Infrastructure", "image": "/assets/six.png", "link": "https://www.qwiklabs.com/quests/84" },
+    { "title": "BigQuery for Machine Learning", "image": "/assets/seven.png", "link": "https://www.qwiklabs.com/quests/71" },
+    { "title": "Integrate with Machine Learning APIs", "image": "/assets/eight.png", "link": "https://www.qwiklabs.com/quests/136" },
+    { "title": "BigQuery for Data Warehousing", "image": "/assets/nine.png", "link": "https://www.qwiklabs.com/quests/68" },
+    { "title": "Building Advanced Codeless Pipelines on Cloud Data Fusion", "image": "/assets/ten.png", "link": "https://www.qwiklabs.com/quests/131" },
+    { "title": "Perform Foundational Data, ML, and AI Tasks in Google Cloud", "image": "/assets/eleven.png", "link": "https://www.qwiklabs.com/quests/117" },
+    { "title": "Engineer Data in Google Cloud", "image": "/assets/twelve.png", "link": "https://www.qwiklabs.com/quests/132" },
+    { "title": "Insights from Data with BigQuery", "image": "/assets/thirteen.png", "link": "https://www.qwiklabs.com/quests/123" },
+    { "title": "Data Catalog Fundamentals", "image": "/assets/fourteen.png", "link": "https://www.qwiklabs.com/quests/134" },
+    { "title": "Google Developer Essentials", "image": "/assets/fifteen.png", "link": "https://www.qwiklabs.com/quests/86" },
+    { "title": "Cloud Healthcare API", "image": "/assets/sixteen.png", "link": "https://www.qwiklabs.com/quests/88" },
+    { "title": "IoT in the Google Cloud", "image": "/assets/seventeen.png", "link": "https://www.qwiklabs.com/quests/49" },
+    { "title": "Scientific Data Processing", "image": "/assets/eighteen.png", "link": "https://www.qwiklabs.com/quests/28" }
+]

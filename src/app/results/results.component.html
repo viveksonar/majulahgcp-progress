@@ -1,2 +1,10 @@
-<p>results works!</p>
-<span [innerHTML]="profileLink"></span>
+<div *ngIf="profileLoaded">
+    <span [innerHTML]="profileLink"></span>
+    <app-progression-tier
+        *ngFor="let relevantQuestTier of relevantQuestTiers" 
+        [tier]="relevantQuestTier"
+        [completedBadges]="completedQuestBadges" ></app-progression-tier>
+    <app-badge-link 
+        *ngFor="let relevantQuestBadge of uncompletedQuestBadges" 
+        [badge]="relevantQuestBadge" ></app-badge-link>
+</div>
