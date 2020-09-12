@@ -1,9 +1,19 @@
-<div *ngIf="profileLoaded">
+<div class="profile" *ngIf="profileLoaded; else elseBlock">
     <mat-card class="profile-card">
         <img class="profile-card-avatar" [src]="profile.imageUrl" />
         <h1 class="profile-card-name mat-display-2">{{ profile.name }}</h1>
         <span class="profile-card-description mat-subheading-1">{{ profile.profileText }}</span>
     </mat-card>
+
+    <button 
+        mat-icon-button 
+        class="profile-card-link" 
+        aria-label="Copy this page link"
+        #tooltip="matTooltip"
+        matTooltip="Copy this page link"
+        (click)="copyProfileLinkToClipboard()">
+        <mat-icon>link</mat-icon>
+    </button>
 
     <div fxLayout="row wrap" fxLayoutGap="15px" fxFlexFill>
         <app-progression-tier
@@ -37,3 +47,16 @@
         </ng-template>
     </mat-card>
 </div>
+<ng-template #elseBlock>
+    <mat-card style="text-align: left">
+        <mat-card-header>
+            <mat-card-title>What's this?</mat-card-title>
+            <mat-card-subtitle>
+                This is a progress tracker built for tracking the progress for Majulah GCP #2, in terms of how far we are away from each tier of swags<br/><br/>
+                See more about this campaign <a href="https://events.withgoogle.com/majulahgcp-learn-data-analytics-using-google-cloud/" target="_blank">here</a><br/><br/>
+                Simply copy your public profile link and paste it above!
+            </mat-card-subtitle>
+        </mat-card-header>
+        <img class="profile-demo-gif" src="/assets/demo.gif" />
+    </mat-card>
+</ng-template>

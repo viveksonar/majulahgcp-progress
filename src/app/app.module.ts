@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { FullLoaderComponent } from './full-loader/full-loader.component';
     MatProgressSpinnerModule,
     FlexLayoutModule,
     MatProgressBarModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

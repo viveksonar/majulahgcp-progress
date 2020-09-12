@@ -1,3 +1,15 @@
+.profile {
+    position: relative;
+}
+
+.profile-card-link {
+    position: absolute;
+    margin: 3px;
+    top: 0;
+    right: 0;
+    color: seashell;
+}
+
 .profile-card {
     background-color: #1A73E8;
     align-items: center;
@@ -27,4 +39,9 @@
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
+}
+
+.profile-demo-gif {
+    width: 100%;
+    max-width: 600px;
 }
