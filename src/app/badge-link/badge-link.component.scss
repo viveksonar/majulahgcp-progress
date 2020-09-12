@@ -1,0 +1,14 @@
+.badge-link-wrapper {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+
+    img {
+        width: 120px;
+    }
+
+    & .badge-link-spacing {
+        margin-bottom: 10px;
+    }
+}
+

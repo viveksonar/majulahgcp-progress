@@ -7,6 +7,7 @@ export type QwiklabsProfileBadge = {
 export type QwiklabsProfileUser = {
     name: string;
     imageUrl: string;
+    profileText: string;
 };
 
 export type FetchQwiklabsProfileStatus = {
@@ -22,6 +23,8 @@ export type QwiklabsQuestBadge = {
 };
 
 export type QwiklabsTier = {
+    title: string,
     questRequirements: number;
     rewards: string;
+    rewardsUrl: string;
 }

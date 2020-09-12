@@ -1,10 +1,39 @@
 <div *ngIf="profileLoaded">
-    <span [innerHTML]="profileLink"></span>
-    <app-progression-tier
-        *ngFor="let relevantQuestTier of relevantQuestTiers" 
-        [tier]="relevantQuestTier"
-        [completedBadges]="completedQuestBadges" ></app-progression-tier>
-    <app-badge-link 
-        *ngFor="let relevantQuestBadge of uncompletedQuestBadges" 
-        [badge]="relevantQuestBadge" ></app-badge-link>
+    <mat-card class="profile-card">
+        <img class="profile-card-avatar" [src]="profile.imageUrl" />
+        <h1 class="profile-card-name mat-display-2">{{ profile.name }}</h1>
+        <span class="profile-card-description mat-subheading-1">{{ profile.profileText }}</span>
+    </mat-card>
+
+    <div fxLayout="row wrap" fxLayoutGap="15px" fxFlexFill>
+        <app-progression-tier
+            fxFlex="calc(50% -  15px)" 
+            fxFlex.sm="100"
+            fxFlex.xs="100"
+            *ngFor="let relevantQuestTier of relevantQuestTiers" 
+            [tier]="relevantQuestTier"
+            [completedBadges]="completedQuestBadges" ></app-progression-tier>
+    </div>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Uncompleted Quests</mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngIf="uncompletedQuestBadges.length === 0; else elseBlock">
+            <p>Whoa! You have completed all of the quests!</p>
+        </mat-card-content>
+        <ng-template #elseBlock>
+            <mat-card-content fxLayout="row wrap" fxLayoutGap="25px" fxLayoutAlign="start flex-end">
+                <app-badge-link
+                    fxFlex="calc(25% - 25px)" 
+                    fxFlex.md="calc(33% - 25px)"
+                    fxFlex.sm="calc(50% -  25px)"
+                    fxFlex.xs="100"
+                    fxGrow="0"
+                    class="profile-badge"
+                    *ngFor="let relevantQuestBadge of uncompletedQuestBadges" 
+                    [badge]="relevantQuestBadge" ></app-badge-link>
+            </mat-card-content>
+        </ng-template>
+    </mat-card>
 </div>

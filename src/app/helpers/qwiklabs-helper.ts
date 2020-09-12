@@ -87,6 +87,7 @@ export default class QwiklabsHelper {
             const errUser: QwiklabsProfileUser = {
                 name: '',
                 imageUrl: '',
+                profileText: '',
             };
 
             result = {
@@ -128,40 +129,46 @@ export default class QwiklabsHelper {
     private static getProfileUserFrom(doc: Document): QwiklabsProfileUser {
         const mainWrapper = doc.getElementById('main-wrapper');
         const profileCollection = mainWrapper.getElementsByClassName('public-profile__hero')
+        const voidUser = {
+            name: '',
+            imageUrl: '',
+            profileText: '',
+        };
 
         if (profileCollection.length === 0) {
-            return {
-                name: '',
-                imageUrl: '',
-            };
+            return voidUser;
         }
 
         const profileWrapper = profileCollection[0];
         const avatarCollection = profileWrapper.getElementsByClassName('avatar');
 
         if (avatarCollection.length === 0) {
-            return {
-                name: '',
-                imageUrl: '',
-            };
+            return voidUser;
         }
 
         const avatarElement = avatarCollection[0];
         const profileLines = profileWrapper.getElementsByClassName('l-mbm');
 
-        if (profileLines.length === 0) {
-            return {
-                name: '',
-                imageUrl: '',
-            };
+        if (profileLines.length < 1) {
+            return voidUser;
         }
 
         const nameElement = profileLines[0];
+        const descriptionElement = profileLines[1];
+
         const name = (nameElement as HTMLElement).innerText;
         const parsedName = name.replace(/\r|\n/g, '');
+        
+        const description = (descriptionElement as HTMLElement).innerText;
+        let parsedDescription = description.replace(/(^(\r|\n))|((\r|\n)$)/g, '');
+        parsedDescription = parsedDescription.replace(/\r|\n/g, ' ');
+
+        const imageSrc = (avatarElement as HTMLImageElement).src;
+
         return {
             name: parsedName,
-            imageUrl: (avatarElement as HTMLImageElement).src,
+            imageUrl: imageSrc,
+            profileText: parsedDescription,
         }
     }
 }

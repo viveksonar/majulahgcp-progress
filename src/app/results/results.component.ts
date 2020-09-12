@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { QwiklabsProfileLinkService } from '@app/services/qwiklabs-profile-link.service';
 import QwiklabsHelper from '@app/helpers/qwiklabs-helper';
-import { QwiklabsQuestBadge, QwiklabsTier } from  '@app/types/qwiklabs';
+import { QwiklabsQuestBadge, QwiklabsTier, QwiklabsProfileUser } from  '@app/types/qwiklabs';
 import QuestTiers from '@app/static/tiers.json';
 import { FullLoaderService } from '@app/services/full-loader.service';
 
@@ -13,7 +13,7 @@ import { FullLoaderService } from '@app/services/full-loader.service';
 })
 export class ResultsComponent implements OnInit {
   public profileLoaded: boolean = false;
-  public profileLink: string = '';
+  public profile: QwiklabsProfileUser;
   public uncompletedQuestBadges: QwiklabsQuestBadge[] = [];
   public completedQuestBadges: QwiklabsQuestBadge[] = [];
   public relevantQuestTiers: QwiklabsTier[] = QuestTiers;
@@ -32,12 +32,12 @@ export class ResultsComponent implements OnInit {
   }
 
   private async _onLinkChanged(link): Promise<void> {
-    this.profileLink = link;
     if (QwiklabsHelper.isProfileLinkCorrect(link)) {
       this._loaderService.setLoading();
-      const profile = await QwiklabsHelper.getProfileFrom(link);
-      this.uncompletedQuestBadges = QwiklabsHelper.getUncompletedBadges(profile.badges);
-      this.completedQuestBadges = QwiklabsHelper.getCompletedBadges(profile.badges);
+      const fetchStatus = await QwiklabsHelper.getProfileFrom(link);
+      this.profile = fetchStatus.user;
+      this.uncompletedQuestBadges = QwiklabsHelper.getUncompletedBadges(fetchStatus.badges);
+      this.completedQuestBadges = QwiklabsHelper.getCompletedBadges(fetchStatus.badges);
       this.profileLoaded = true;
       this._loaderService.setLoaded();
     } else {

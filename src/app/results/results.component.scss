@@ -1,0 +1,30 @@
+.profile-card {
+    background-color: #1A73E8;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    color: white;
+}
+
+.profile-card-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.profile-card-name {
+    font-weight: 900;
+    margin: 15px 0 10px 0;
+}
+
+.profile-card-description {
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.profile-badge {
+    align-items: flex-end;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}

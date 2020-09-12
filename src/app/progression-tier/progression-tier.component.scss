@@ -1,0 +1,46 @@
+$max-image-width: 150px;
+
+.progression-card {
+    text-align: left;
+}
+
+.progression-card-completed {
+    opacity: 0.3;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.progression-row {
+    margin-bottom: 10px;
+}
+
+.mat-card-title {
+    margin-right: 10px;
+}
+
+.mat-card-title, .mat-card-subtitle  {
+    display: inline-block;
+}
+
+.progression-completed-text {
+    color:#4BB543;
+}
+
+.progression-uncompleted-text {
+    color: #ffae42;
+}
+
+.progression-rewards-image {
+    text-align: center;
+    width: $max-image-width;
+}
+
+@media (max-width: $max-image-width) {
+    .progression-rewards-image {
+        width: 100%;
+    }
+}
+

@@ -1,3 +1,5 @@
-<img [src]="badge.image" />
-<span>{{ badge.title }}</span>
-<a [href]="badge.link" >To Quest</a>
+<div class="badge-link-wrapper">
+    <img class="badge-link-spacing" [src]="badge.image" />
+    <span class="badge-link-spacing">{{ badge.title }}</span>
+    <a mat-raised-button [href]="badge.link" color="primary" target="_blank">To Quest</a>
+</div>
