@@ -1,0 +1,14 @@
+$max-body-width: 1024px;
+
+.response-body {
+    width: $max-body-width;
+    text-align: center;
+    margin: 0 auto;
+}
+
+@media (max-width: $max-body-width) {
+    .response-body {
+        width: 100%;
+    }
+}
+

@@ -17,6 +17,13 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onKeyup(event: KeyboardEvent): void {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      this.submitLink();
+    }
+  }
+
   submitLink(): void {
     this._linkService.setProfileLink(this.profileSearchText);
   }

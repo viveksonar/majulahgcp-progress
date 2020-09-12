@@ -1,0 +1,28 @@
+.full-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.full-loader-loading {
+    visibility: visible;
+    transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.full-loader-backdrop {
+    background-color: black;
+    opacity: 30%;
+    width: 100vw;
+    height: 100vh;
+}
+
+.full-loader-spinner {
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    position: absolute;
+}

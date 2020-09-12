@@ -9,8 +9,7 @@ import { QwiklabsQuestBadge } from  '@app/types/qwiklabs';
 export class BadgeLinkComponent implements OnInit {
   @Input() badge: QwiklabsQuestBadge;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }
