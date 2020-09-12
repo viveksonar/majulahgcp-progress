@@ -9,7 +9,7 @@ import QuestBadges from '@app/static/quests.json';
 const HTTP_PROTOCOL = 'http';
 const HTTPS_PROTOCOL = 'https';
 const PROFILE_LINK_REGEX = /^(?:(?:https|http)\:\/\/|)(?:www|google)\.qwiklabs\.com\/public_profiles\/[a-zA-Z0-9-]+$/
-const CORS_PROXY = 'https://cors-anywhere.herokuapp.com';
+const CORS_PROXY = 'https://weiyuan-cors-anywhere.herokuapp.com';
 
 export default class QwiklabsHelper {
     static isProfileLinkCorrect(link: string): boolean {

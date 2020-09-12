@@ -33,7 +33,7 @@
             <p>Whoa! You have completed all of the quests!</p>
         </mat-card-content>
         <ng-template #elseBlock>
-            <mat-card-content fxLayout="row wrap" fxLayoutGap="25px" fxLayoutAlign="start flex-end">
+            <div fxLayout="row wrap" fxLayoutGap="25px" fxLayoutAlign="start flex-end">
                 <app-badge-link
                     fxFlex="calc(25% - 25px)" 
                     fxFlex.md="calc(33% - 25px)"
@@ -43,7 +43,7 @@
                     class="profile-badge"
                     *ngFor="let relevantQuestBadge of uncompletedQuestBadges" 
                     [badge]="relevantQuestBadge" ></app-badge-link>
-            </mat-card-content>
+            </div>
         </ng-template>
     </mat-card>
 </div>
