@@ -3,9 +3,9 @@
         <mat-card-title>{{ tier.title }}</mat-card-title>
         <mat-card-subtitle>
             <div>
-            <div *ngIf="completed; else elseBlock">Completed <span class="progression-completed-text">{{ completedBadges.length }}</span> / {{ tier.questRequirements }} (<span class="progression-completed-text">{{ percentage }}%</span>)</div>
+            <div *ngIf="completed; else elseBlock">Completed &nbsp;&#183;&nbsp; <span class="progression-completed-text">{{ completedBadges.length }}</span> / {{ tier.questRequirements }} (<span class="progression-completed-text">{{ percentage }}%</span>)</div>
             <ng-template #elseBlock>
-                <div>Not Completed <span class="progression-uncompleted-text">{{ completedBadges.length }}</span> / {{ tier.questRequirements }} (<span class="progression-uncompleted-text">{{ percentage }}%</span>)</div>
+                <div>Not Completed &nbsp;&#183;&nbsp; <span class="progression-uncompleted-text">{{ completedBadges.length }}</span> / {{ tier.questRequirements }} (<span class="progression-uncompleted-text">{{ percentage }}%</span>)</div>
             </ng-template>
         </div>
         </mat-card-subtitle>

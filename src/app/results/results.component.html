@@ -15,7 +15,7 @@
         <mat-icon>link</mat-icon>
     </button>
 
-    <div fxLayout="row wrap" fxLayoutGap="15px" fxFlexFill>
+    <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutGap.sm="0" fxLayoutGap.xs="0" fxFlexFill>
         <app-progression-tier
             fxFlex="calc(50% -  15px)" 
             fxFlex.sm="100"
@@ -33,7 +33,7 @@
             <p>Whoa! You have completed all of the quests!</p>
         </mat-card-content>
         <ng-template #elseBlock>
-            <div fxLayout="row wrap" fxLayoutGap="25px" fxLayoutAlign="start flex-end">
+            <div fxLayout="row wrap" fxLayoutGap="25px" fxLayoutGap.xs="0" fxLayoutAlign="start flex-end">
                 <app-badge-link
                     fxFlex="calc(25% - 25px)" 
                     fxFlex.md="calc(33% - 25px)"
