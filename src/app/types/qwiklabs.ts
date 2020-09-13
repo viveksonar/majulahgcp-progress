@@ -2,6 +2,7 @@
 export type QwiklabsProfileBadge = {
     title: string;
     earnedDateStr: string;
+    earnedDate: Date;
 };
 
 export type QwiklabsProfileUser = {

@@ -5,11 +5,15 @@ import {
     QwiklabsQuestBadge,
 } from  '@app/types/qwiklabs';
 import QuestBadges from '@app/static/quests.json';
+import Campaign from '@app/static/campaign.json';
 
 const HTTP_PROTOCOL = 'http';
 const HTTPS_PROTOCOL = 'https';
 const PROFILE_LINK_REGEX = /^(?:(?:https|http)\:\/\/|)(?:www|google)\.qwiklabs\.com\/public_profiles\/[a-zA-Z0-9-]+$/
 const CORS_PROXY = 'https://weiyuan-cors-anywhere.herokuapp.com';
+
+const FROM_TIME = new Date(Campaign.from);
+const TO_TIME = new Date(Campaign.to);
 
 export default class QwiklabsHelper {
     static isProfileLinkCorrect(link: string): boolean {
@@ -57,6 +61,15 @@ export default class QwiklabsHelper {
             }
         })
 
+        return completedBadges;
+    }
+
+    static getCompletedBadgesInCampaignTimeRange(completedProfileBadges: QwiklabsProfileBadge[]): QwiklabsQuestBadge[] {
+        const timeRangedBadges: QwiklabsProfileBadge[] = completedProfileBadges.filter((completedProfileBadge) => {
+            return completedProfileBadge.earnedDate > FROM_TIME && completedProfileBadge.earnedDate <= TO_TIME;
+        });
+
+        const completedBadges = this.getCompletedBadges(timeRangedBadges);
         return completedBadges;
     }
 
@@ -120,6 +133,7 @@ export default class QwiklabsHelper {
             profileBadges.push({
                 title: parsedTitle,
                 earnedDateStr: parsedDateStr,
+                earnedDate: new Date(parsedDateStr),
             })
         }
 

@@ -42,7 +42,7 @@ export class ResultsComponent implements OnInit {
       const fetchStatus = await QwiklabsHelper.getProfileFrom(link);
       this.profile = fetchStatus.user;
       this.uncompletedQuestBadges = QwiklabsHelper.getUncompletedBadges(fetchStatus.badges);
-      this.completedQuestBadges = QwiklabsHelper.getCompletedBadges(fetchStatus.badges);
+      this.completedQuestBadges = QwiklabsHelper.getCompletedBadgesInCampaignTimeRange(fetchStatus.badges);
       this._profileLink = `${window.location.origin}${window.location.pathname}?link=${encodeURIComponent(link)}`;
       this.profileLoaded = true;
       this._loaderService.setLoaded();
